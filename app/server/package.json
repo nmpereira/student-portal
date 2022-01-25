@@ -6,6 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
+    "dev": "nodemon index.js",
     "build": "cd app && cd client && npm install && npm run build"
   },
   "engines": {
@@ -16,5 +17,8 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
   }
 }

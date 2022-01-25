@@ -6,6 +6,11 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app/server/index.js",
+    "startclient": "cd app/client && npm start",
+    "startserver": "cd app/server && npm run dev",
+    "dev": "npm run startclient & npm run startserver",
+    "devinstall": "concurrently \"cd app/client && npm install\" \"cd app/client && npm install\"",
+    "devstart": "concurrently \"npm run startclient\" \"npm run startserver\"",
     "build": "cd app && cd client && npm install && npm run build"
   },
   "engines": {
@@ -16,5 +21,9 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.2"
+  },
+  "devDependencies": {
+    "concurrently": "^7.0.0",
+    "nodemon": "^2.0.15"
   }
 }
