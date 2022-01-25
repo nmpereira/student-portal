@@ -2,31 +2,23 @@
 
 const express = require("express");
 const path = require("path");
-
 const logger = require("./routes/logger");
+const api = require("./routes/api");
 const PORT = process.env.PORT || 3001;
 
-// const api = require("./routes/api");
-
 const app = express();
-
+app.set("json spaces", 2);
+app.use(express.json());
 // Have Node serve the files for our built React app
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 app.use(logger);
-// app.use("/api", api);
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.json({
-    message: "Hello from server!!",
-    dirname: __dirname + "..app/client/build",
+    message: "Home",
   });
 });
-
-// //Get all Users
-// app.get("/api/users", (req, res) => res.json(members));
-
-// //Get single User
-// app.get("/api/users/:id", (req, res) => res.json(members[req.params.id]));
+app.use("/api", api);
 
 // All other GET requests not handled before will return our React app
 app.get("*", (req, res) => {
