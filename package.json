@@ -21,8 +21,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2",
-    "moment": "^2.29.1"
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
