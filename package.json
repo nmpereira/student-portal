@@ -11,6 +11,7 @@
     "dev": "npm run startclient & npm run startserver",
     "devinstall": "concurrently \"cd app/client && npm install\" \"cd app/client && npm install\"",
     "devstart": "concurrently \"npm run startclient\" \"npm run startserver\"",
+    "devrunlocal": "cd app/client && rm -rf build",
     "build": "cd app && cd client && npm install && npm run build"
   },
   "engines": {
@@ -20,7 +21,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.2"
+    "dotenv": "^14.3.2",
+    "express": "^4.17.2",
+    "moment": "^2.29.1",
+    "mongoose": "^6.1.8"
   },
   "devDependencies": {
     "concurrently": "^7.0.0",
