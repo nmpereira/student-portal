@@ -65,7 +65,7 @@ router.route("/:id").put(getComment, async (req, res) => {
     const comments = await comment.findOneAndUpdate(query, update, {
       new: true,
     });
-    rs.send(comments);
+    res.send(comments);
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }

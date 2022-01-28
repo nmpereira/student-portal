@@ -61,7 +61,7 @@ router.route("/:id").put(getPost, async (req, res) => {
     const posts = await post.findOneAndUpdate(query, update, {
       new: true,
     });
-    rs.send(posts);
+    res.send(posts);
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }

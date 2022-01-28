@@ -18,13 +18,10 @@ router.route("/").get(async (req, res) => {
 //Get single User by id
 router.route("/:id").get(getUser, async (req, res) => {
   try {
-    // const users = await user.find({ _id: req.params.id });
-
     res.json(res.user);
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
-  // res.json(user);
 });
 
 //Create users
@@ -61,6 +58,7 @@ router.route("/:id").put(getUser, async (req, res) => {
       username: req.body.username,
       name: req.body.name,
       email: req.body.email,
+      status: req.body.status,
     },
     updated_at,
   };
@@ -69,17 +67,15 @@ router.route("/:id").put(getUser, async (req, res) => {
     const users = await user.findOneAndUpdate(query, update, {
       new: true,
     });
-    rs.send(users);
+    res.send(users);
   } catch (err) {
-    res.status(500).json({ msg: err.message });
+    res.status(500).json({ msg1: err.message });
   }
 });
 
 //Delete single User by id
 router.route("/:id").delete(getUser, async (req, res) => {
   try {
-    // const users = await user.find({ _id: req.params.id });
-    // res.json(user);
     const removedUser = await res.user.remove();
     res.json({ message: "Deleted user" });
   } catch (err) {

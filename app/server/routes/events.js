@@ -70,7 +70,7 @@ router.route("/:id").put(getEvent, async (req, res) => {
     const events = await event.findOneAndUpdate(query, update, {
       new: true,
     });
-    rs.send(events);
+    res.send(events);
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
