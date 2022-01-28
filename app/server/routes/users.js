@@ -2,8 +2,7 @@
 require("dotenv").config();
 const express = require("express");
 const router = express.Router();
-// const members = require("./members");
-const uuid = require("uuid");
+
 const user = require("../models/user");
 
 //Get all Users
@@ -32,7 +31,6 @@ router.route("/:id").get(getUser, async (req, res) => {
 router.route("/").post(async (req, res, next) => {
   const updated_at = Date.now();
   const User = new user({
-    // id: uuid.v4(),
     username: req.body.username,
     name: req.body.name,
     email: req.body.email,

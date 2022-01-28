@@ -106,3 +106,4 @@ dist
 
 #all other ignores
 local.sh
+.vscode/launch.json
