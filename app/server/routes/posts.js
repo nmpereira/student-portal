@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 const post = require("../models/post");
+const comment = require("../models/comment");
 
 //Get all Posts
 router.route("/").get(async (req, res) => {
@@ -72,6 +73,16 @@ router.route("/:id").delete(getPost, async (req, res) => {
   try {
     const removedPost = await res.post.remove();
     res.json({ message: "Deleted post" });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+//Get comments for a post
+router.route("/:id/comments").get(getPost, async (req, res) => {
+  try {
+    const post_comments = await comment.find({ post_id: req.params.id });
+    res.send({ post_comments });
   } catch (err) {
     res.status(500).json({ msg: err.message });
   }
