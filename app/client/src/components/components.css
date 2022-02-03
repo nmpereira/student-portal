@@ -1,0 +1,32 @@
+.post {
+  border: 1px solid black;
+  background: rgb(240, 180, 180);
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 0.75rem;
+}
+.comment {
+  border: 1px solid black;
+  background: rgb(190, 240, 180);
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 0.75rem;
+}
+.user {
+  border: 1px solid black;
+  background: rgb(180, 194, 240);
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 0.75rem;
+}
+.event {
+  border: 1px solid black;
+  background: rgb(240, 231, 180);
+  width: 20rem;
+  margin: 2rem;
+  padding: 1rem;
+  font-size: 0.75rem;
+}
