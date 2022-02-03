@@ -128,8 +128,17 @@ router.route("/:id/event_owner").get(getUser, async (req, res) => {
   }
 });
 
-//Get user enrolled Events
-// TODO: create user enrollment into Events
+//Get list of events a student is enrolled in
+//TODO
+
+//figure out caching
+//TODO
+
+//look up db joins - not in noSql
+//TODO
+
+//look into what backends actually do
+//TODO
 
 async function getUser(req, res, next) {
   let input;
