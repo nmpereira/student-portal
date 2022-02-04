@@ -4,6 +4,7 @@ import "./components.css";
 function Comment(props) {
   return (
     <div className="comment">
+      <h2>Comment</h2>
       <p>_id: {props._id}</p>
       <p>created_by: {props.created_by}</p>
       <p>post_id: {props.post_id}</p>

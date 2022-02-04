@@ -4,6 +4,8 @@ import "./components.css";
 function Event(props) {
   return (
     <div className="event">
+      <h2>Event</h2>
+
       <p>_id: {props._id}</p>
       <p>created_by: {props.created_by}</p>
       <p>event_name: {props.event_name}</p>

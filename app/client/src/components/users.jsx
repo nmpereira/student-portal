@@ -4,6 +4,7 @@ import "./components.css";
 function User(props) {
   return (
     <div className="user">
+      <h2>User</h2>
       <p>_id: {props._id}</p>
       <p>username: {props.username}</p>
       <p>name: {props.name}</p>

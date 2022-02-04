@@ -23,9 +23,9 @@ function App() {
       const eventResponse = await fetch("/api/events");
       const eventData = await eventResponse.json();
 
+      setUsers(userData);
       setPosts(postData);
       setComments(commentData);
-      setUsers(userData);
       setEvents(eventData);
       console.log(postData);
       console.log(commentData);
@@ -35,25 +35,6 @@ function App() {
   }, []);
   return (
     <div>
-      {posts.map((post) => (
-        <Post
-          _id={post._id}
-          created_by={post.created_by}
-          content={post.content}
-          updated_at={post.updated_at}
-          created_at={post.created_at}
-        />
-      ))}
-      {comments.map((comment) => (
-        <Comment
-          _id={comment._id}
-          created_by={comment.created_by}
-          post_id={comment.post_id}
-          content={comment.content}
-          updated_at={comment.updated_at}
-          created_at={comment.created_at}
-        />
-      ))}
       {users.map((user) => (
         <User
           _id={user._id}
@@ -65,6 +46,27 @@ function App() {
           created_at={user.created_at}
         />
       ))}
+      {posts.map((post) => (
+        <Post
+          _id={post._id}
+          created_by={post.created_by}
+          content={post.content}
+          updated_at={post.updated_at}
+          created_at={post.created_at}
+        />
+      ))}
+
+      {comments.map((comment) => (
+        <Comment
+          _id={comment._id}
+          created_by={comment.created_by}
+          post_id={comment.post_id}
+          content={comment.content}
+          updated_at={comment.updated_at}
+          created_at={comment.created_at}
+        />
+      ))}
+
       {events.map((event) => (
         <Event
           _id={event._id}
