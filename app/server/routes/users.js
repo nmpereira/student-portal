@@ -4,6 +4,9 @@ const express = require("express");
 const router = express.Router();
 
 const user = require("../models/user");
+const post = require("../models/post");
+const comment = require("../models/comment");
+const event = require("../models/event");
 
 //Get all Users
 router.route("/").get(async (req, res) => {
@@ -82,6 +85,60 @@ router.route("/:id").delete(getUser, async (req, res) => {
     res.status(500).json({ msg: err.message });
   }
 });
+
+//Get all user activity
+router.route("/:id/activity").get(getUser, async (req, res) => {
+  try {
+    const user_posts = await post.find({ created_by: req.params.id });
+    const user_comments = await comment.find({ created_by: req.params.id });
+    const user_event_owner = await event.find({ created_by: req.params.id });
+    res.send({ user_posts, user_comments, user_event_owner });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+//Get user posts
+router.route("/:id/posts").get(getUser, async (req, res) => {
+  try {
+    const user_posts = await post.find({ created_by: req.params.id });
+    res.send({ user_posts });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+//Get user Comments
+router.route("/:id/comments").get(getUser, async (req, res) => {
+  try {
+    const user_comments = await post.find({ created_by: req.params.id });
+    res.send({ user_comments });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+//Get user created Events
+router.route("/:id/event_owner").get(getUser, async (req, res) => {
+  try {
+    const user_event_owner = await post.find({ created_by: req.params.id });
+    res.send({ user_event_owner });
+  } catch (err) {
+    res.status(500).json({ msg: err.message });
+  }
+});
+
+//Get list of events a student is enrolled in
+//TODO
+
+//figure out caching
+//TODO
+
+//look up db joins - not in noSql
+//TODO
+
+//look into what backends actually do
+//TODO
 
 async function getUser(req, res, next) {
   let input;

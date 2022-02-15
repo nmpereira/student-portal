@@ -4,6 +4,7 @@ const express = require("express");
 const router = express.Router();
 
 const event = require("../models/event");
+const user = require("../models/user");
 
 //Get all Events
 router.route("/").get(async (req, res) => {
@@ -85,6 +86,21 @@ router.route("/:id").delete(getEvent, async (req, res) => {
     res.status(500).json({ msg: err.message });
   }
 });
+
+//Get list of students enrolled in event
+//TODO
+
+//Post: Add student enrollment to given events
+//TODO
+
+//Delete student enrollment from event
+//TODO
+
+//Get list of events a student is enrolled in
+//TODO
+
+//comments for Events
+//TODO
 
 async function getEvent(req, res, next) {
   let input;
