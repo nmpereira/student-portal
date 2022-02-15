@@ -1,0 +1,23 @@
+.post {
+  background: rgb(240, 180, 180);
+}
+.comment {
+  background: rgb(190, 240, 180);
+}
+.user {
+  background: rgb(180, 194, 240);
+}
+.event {
+  background: rgb(240, 229, 172);
+}
+.event,
+.user,
+.comment,
+.post {
+  border: 2px solid black;
+  width: 20rem;
+  margin: 2rem;
+  border-radius: 20px;
+  padding: 1rem 2rem;
+  font-size: 0.75rem;
+}
