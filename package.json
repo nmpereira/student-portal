@@ -15,7 +15,7 @@
     "build": "cd app && cd client && npm install && npm run build"
   },
   "engines": {
-    "node": "16.13.1"
+    "node": "14.19.0"
   },
   "keywords": [],
   "author": "",
