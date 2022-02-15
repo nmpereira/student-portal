@@ -23,6 +23,7 @@ function App() {
       const eventResponse = await fetch("/api/events");
       const eventData = await eventResponse.json();
 
+
       setUsers(userData);
       setPosts(postData);
       setComments(commentData);
@@ -32,6 +33,7 @@ function App() {
       console.log(userData);
       console.log(eventData);
     }
+
   }, []);
   return (
     <div>
